@@ -14,10 +14,12 @@
 <body>
 	<script id="trollers" type="text/x-dot-template">
 		{{~ it.trollers :troll}}
-			<div class="troll">
+			<div class="troll" >
 				<img src="images/{{=troll.name}}.png"  width="88" height="128" align="top">
-				<span class="troll-name">{{=troll.name}}</span>
-				<span class="troll-count">{{=troll.count}}</span>
+				<input type="hidden" name="troll-name" value="{{=troll.name}}"/>
+                <div class="troll-count">
+                    {{=troll.count}}
+                </div>
 			</div>
 		{{~}}
 	</script>
