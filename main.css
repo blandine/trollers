@@ -1,14 +1,10 @@
 .troll {
-	width: 200px;
-	display: block;
-}
-
-.troll-name {
 	display: inline-block;
-	border: 1px solid black;
+    padding:10px;
 }
 
 .troll-count {
 	display: inline-block;
 	margin-left: 20px;
+    vertical-align:middle;
 }
