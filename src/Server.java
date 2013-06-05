@@ -71,7 +71,7 @@ public class Server extends Verticle {
             }
         });
         
-        rm.getWithRegEx("/trollers/([a-zA-Z]+)/denounce",  new Handler<HttpServerRequest>() {
+        rm.putWithRegEx("/trollers/([a-zA-Z]+)/denounce",  new Handler<HttpServerRequest>() {
             public void handle(HttpServerRequest req) {
             	// Extract troll name
             	String trollName = req.path.split("/")[2];
