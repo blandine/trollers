@@ -1,19 +1,23 @@
 $(document).ready(function main() {
-	var trollers = {trollers:[
-			{name:"NME",count:0},
-			{name:"BCA",count:0},
-			{name:"BDE",count:0},
-			{name:"FMO",count:0},
-			{name:"EFO",count:0},
-			{name:"CPR",count:0},
-			{name:"OBE",count:0},
-			{name:"BORE",count:0},
-			{name:"EBO",count:0},
-			{name:"RRO",count:0}				
-	]};
+	var trollers = get_trollers();
 
 	var htmlTpl = document.getElementById('trollers').text
 	var templateTrollers = doT.template(htmlTpl);
 
 	$("#main").append(templateTrollers(trollers));
+
+	$(".troll").on("click", function(e) {
+		var target = $(e.currentTarget);
+		var name = target.find(".troll-name").html();
+		console.log("click sur ",name);
+
+		$.ajax({
+		  url: "/troller/"+name+"/denounce",
+		  type: "PUT",
+		}).done(function ( data ) {
+		    console.log("Done");
+		}).fail(function (jqXHR, textStatus, errorThrown ) {
+			console.log("Fail");
+		})
+	});
 });
